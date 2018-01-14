@@ -11,6 +11,7 @@
   background-color: #222;
   padding: 20px;
   color: white;
+
 }
 
 .App-title {
@@ -26,14 +27,33 @@
   to { transform: rotate(360deg); }
 }
 .footer{
-  position: relative;
-  margin-top: 600px;
-  background-color: black;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #222;
+  text-align: center;
+  color: white;
+}
+.content-area{
+  color: darkblue;
+}
+.menu{
+
+  float: right;
+  padding-right: 20px;
+
+}
+.a{
+  padding: 5px 10px 5px 5px;
+  text-decoration: none;
   color: white;
 
 }
-.content-area{
-  background-color: #8c7eb9;
-  height: 700px;
-  margin-top: 20px;
+.a:hover{
+  color: blue;
+}
+.post{
+  color: white;
 }
