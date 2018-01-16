@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
 import '../App.css';
+import {NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
+
+const container = {
+    'paddingLeft':'500px',
+    'color':'white'
+};
 
 class Footer extends Component{
     render(){
         return(
-            <div className="footer">
-
-            Footer
-
-            </div>
+            <Nav className="navbar navbar-inverse bg-inverse">
+                <div style={container}>
+                    &copy; Abiling {new Date().getFullYear()}
+                </div>
+            </Nav>
         );
     }
 }

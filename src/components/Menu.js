@@ -1,22 +1,29 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import {NavbarBrand,Nav,NavItem,NavLink,Button} from 'reactstrap';
 import '../App.css';
-import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
-// import Route from 'react-router-dom/Router';
-import Main from './Main';
-import Post from './Post';
+import 'bootstrap/dist/css/bootstrap.css';
+import {Link} from 'react-router-dom';
 
 class Menu  extends Component{
     render(){
         return(
-            <Router>
-            <div className="menu">
-                <Link className="a a:hover" to='/'>Home</Link>
-                <Link className="a a:hover" to='/Post'>Create Post</Link>
-               
-            </div>
-            
-            </Router>
+            // <div>             
+                <Nav className="navbar-nav mr-auto navbar-toggler-right">
+                    <NavItem>
+                        <NavLink tag={Link} to='/'>Home</NavLink>                        
+                    </NavItem>
+                    <NavItem>
+                        <NavLink tag={Link} to='/Post'>Create Post</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <Button color="outline-primary" tag={Link} to='/Login'>Login</Button>
+                    </NavItem>
+                    <NavItem>
+                        <Button color="outline-primary" tag={Link} to='/Signup'>Signup</Button>
+                    </NavItem>
+                </Nav>
+
         );
     }
 }

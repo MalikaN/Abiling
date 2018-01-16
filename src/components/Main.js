@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import ContentArea from './ContentArea';
-import Post from './Post';
-
-
+import Routes from '../Routes';
 
 class Main extends Component{
     render(){
         return(
                 <div>
                     <Header/>
-                    <ContentArea/>
+                    <Routes/>
                     <Footer/>
                 </div>
         );
