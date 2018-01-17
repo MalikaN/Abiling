@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Navbar,NavbarBrand } from 'reactstrap';
-import '../App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Menu from './Menu';
 import {Link} from 'react-router-dom';

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import '../App.css';
 import '../index.css';
 import posts from '../posts.js';
 import { Button, Card, CardImg, CardTitle, CardText,CardSubtitle, CardBody } from 'reactstrap';

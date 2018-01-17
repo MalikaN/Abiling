@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../App.css';
 import {NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
 
 const container = {

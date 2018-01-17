@@ -4,11 +4,6 @@ import { Button, Form, FormGroup, Label, Input, FormText,Container,Row,Col } fro
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 
-const column ={
-    'border': '1px solid rgba(0, 0, 0, 0.15)',
-    'marginTop': '30px',
-    'borderRadius': '0.25rem'
-}
 
 class Signup extends Component{
     render(){
@@ -16,8 +11,16 @@ class Signup extends Component{
             <Container className="contain">
                 <Row>
                     <Col xs="6" sm="4"></Col>
-                    <Col xs="6" sm="4" style={column}>
+                    <Col xs="6" sm="4" className="column">
                         <Form>
+                        <FormGroup>
+                                <Label for="Email">First Name</Label>
+                                <Input type="email" name="email" id="inputEmail" placeholder="Enter your first name" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="Email">Last Name</Label>
+                                <Input type="email" name="email" id="inputEmail" placeholder="Enter your last name" />
+                            </FormGroup>
                             <FormGroup>
                                 <Label for="Email">Email</Label>
                                 <Input type="email" name="email" id="inputEmail" placeholder="Enter your email" />
