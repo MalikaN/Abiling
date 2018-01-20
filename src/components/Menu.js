@@ -3,9 +3,26 @@ import ReactDOM from 'react-dom';
 import {NavbarBrand,Nav,NavItem,NavLink,Button} from 'reactstrap';
 import '../index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Link} from 'react-router-dom';
+import {Link } from 'react-router-dom';
+//import {hashHistory} from 'react-router';
 
 class Menu  extends Component{
+
+    validJWT(e){
+
+        
+            let jwt = localStorage.getItem('token');
+            if (jwt) {
+                //hashHistory.push('/Post');
+                alert('hello');
+            } 
+            else{
+                this.props.history.push('/Login');
+                //alert('no');
+            }
+
+    }
+
     render(){
         return(
             // <div>             
@@ -14,10 +31,10 @@ class Menu  extends Component{
                         <NavLink tag={Link} to='/'>Home</NavLink>                        
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} to='/Post'>Create Post</NavLink>
+                        <Button  onClick={()=>this.validJWT()}>Create Post</Button>
                     </NavItem>
                     <NavItem>
-                        <Button color="outline-primary" tag={Link} to='/Login'>Login</Button>
+                        <Button color="outline-primary" tag={Link} to='/Login' >Login</Button>
                     </NavItem>
                     <NavItem>
                         <Button color="outline-primary" tag={Link} to='/Signup'>Signup</Button>
