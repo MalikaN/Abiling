@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 import '../index.css';
-import { Container, Row, Col,Grid,Input,Form, Label,Button } from 'reactstrap';
+import { Container, Row, Col,Input,Form,Button } from 'reactstrap';
 
 const textArea={
     'height': '500px',

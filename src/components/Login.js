@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
-import { Button, Form, FormGroup, Label, Input, Container, Row, Col, FormFeedback } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 
@@ -9,16 +8,15 @@ class Login extends Component{
 
     constructor(){
         super();
-        this.handleEmailChange=this.handleEmailChange.bind(this);
-        this.handlePasswordChange=this.handlePasswordChange.bind(this);
-        this.state={
-            username:null,
-            password:null
+        this.state= {
+            email: '',
+            password: ''
         }
+        this.handleInputChange=this.handleInputChange.bind(this);
     }
 
     login(e){
-        if(this.state.username=='malika@gmail.com' && this.state.password=='pw'){
+        if(this.state.email==='malika@gmail.com' && this.state.password ==='pw'){
             localStorage.setItem('token','qwertyuiopasdfghjklzxcvbnm123456');
             this.props.history.push("/");
             // let jwt = localStorage.getItem('token');
@@ -33,16 +31,16 @@ class Login extends Component{
           }
 
     }
-    handleEmailChange(e){
+    handleInputChange(e){
+        //const target = e.target;
+        const value = e.target.value;
+        const name = e.target.name;
         this.setState({
-            username:e.target.value
+            [name]:value
+          
         });
     }
-    handlePasswordChange(e){
-        this.setState({
-            password:e.target.value
-        });
-    }
+
     render(){
         return(
             <Container className="contain">
@@ -52,12 +50,12 @@ class Login extends Component{
                         <Form>
                             <FormGroup>
                                 <Label for="Email">Email</Label>
-                                <Input type="email" name="email" id="inputEmail" value={this.state.username} placeholder="Enter your email"  onChange={this.handleEmailChange} />
+                                <Input type="email" name="email" id="inputEmail" value={this.state.email} placeholder="Enter your email"  onChange={this.handleInputChange} />
                                 {/* <FormFeedback>Oh noes! that name is already taken</FormFeedback> */}
                             </FormGroup>
                             <FormGroup>
                                 <Label for="Password">Password</Label>
-                                <Input type="password" name="password" id="inputPassword" value={this.state.password} placeholder="Enter your password" onChange={this.handlePasswordChange} />
+                                <Input type="password" name="password" id="inputPassword" value={this.state.pwd} placeholder="Enter your password" onChange={this.handleInputChange} />
                             </FormGroup>
                             <Button className="" color="outline-success" onClick={()=>this.login()}>Sign in</Button>
                         </Form>

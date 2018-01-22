@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
+import {Nav} from 'reactstrap';
 
 const container = {
     'paddingLeft':'500px',

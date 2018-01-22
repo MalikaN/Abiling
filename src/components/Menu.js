@@ -1,28 +1,25 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
-import {NavbarBrand,Nav,NavItem,NavLink,Button} from 'reactstrap';
+import {Nav,NavItem,NavLink,Button} from 'reactstrap';
 import '../index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Link } from 'react-router-dom';
-//import {hashHistory} from 'react-router';
+import {Link,Route} from 'react-router-dom';
+
+export const fakeAuth={
+    isAuthenticated:false,
+    authenticated(cb){
+        this.isAuthenticated=false
+        setTimeout(cb,100)
+    },
+    signout(cb) {
+        this.isAuthenticated = false
+        setTimeout(cb, 100) 
+      }
+}
+
+
+
 
 class Menu  extends Component{
-
-    validJWT(e){
-
-        
-            let jwt = localStorage.getItem('token');
-            if (jwt) {
-                //hashHistory.push('/Post');
-                alert('hello');
-            } 
-            else{
-                this.props.history.push('/Login');
-                //alert('no');
-            }
-
-    }
-
     render(){
         return(
             // <div>             
@@ -31,16 +28,16 @@ class Menu  extends Component{
                         <NavLink tag={Link} to='/'>Home</NavLink>                        
                     </NavItem>
                     <NavItem>
-                        <Button  onClick={()=>this.validJWT()}>Create Post</Button>
+                        <NavLink tag={Link} to='/Post'>Create Post</NavLink>
                     </NavItem>
                     <NavItem>
-                        <Button color="outline-primary" tag={Link} to='/Login' >Login</Button>
+                        <Button color="outline-primary" tag={Link} to='/Login'>Login</Button>
                     </NavItem>
                     <NavItem>
                         <Button color="outline-primary" tag={Link} to='/Signup'>Signup</Button>
                     </NavItem>
                 </Nav>
-
+  
         );
     }
 }
