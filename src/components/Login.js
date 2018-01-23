@@ -10,28 +10,21 @@ class Login extends Component{
 
     constructor(){
         super();
-        this.state= {
+        this.state = {
             email: '',
-            password: ''
+            password: '',
+            redirectToReferrer: false
         }
         this.handleInputChange=this.handleInputChange.bind(this);
     }
-    state = {
-        redirectToReferrer: false
-      }
 
     login=()=>{
-        fakeAuth.authenticated(()=>{
-            this.setState(()=>({
-                redirectToReferrer:true
-            }))
-        })
-
         if(this.state.email==='malika@gmail.com' && this.state.password ==='pw'){
             localStorage.setItem('token','qwertyuiopasdfghjklzxcvbnm123456');
-                this.props.history.push("/");
+            fakeAuth.authenticated();
+            this.props.history.push("/");
           }else{
-            //alert('login Failed');
+            alert('login Failed');
           }
     }
 
@@ -44,11 +37,9 @@ class Login extends Component{
     }
 
     render(){
-        const {redirectToReferrer} = this.state
 
-        if(redirectToReferrer === true){
-            <Redirect to='/Post'/>
-        }
+        const { redirectToReferrer } = this.state
+
         return(
             <Container className="contain">
                 <Row>
