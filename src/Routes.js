@@ -4,11 +4,13 @@ import Home from './components/Home';
 import Post from './components/Post';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { fakeAuth } from './components/Menu';
+
+
+const isAuthenticated =  localStorage.getItem('token') ? true : false
 
 const PrivateRoute = ({component:Component,...rest}) =>(
     <Route {...rest} render={(props)=>(
-        fakeAuth.isAuthenticated === true
+        isAuthenticated === true
         ?<Component {...props} />
         :<Redirect to='/Login' />
     )} />

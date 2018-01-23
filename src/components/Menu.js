@@ -4,19 +4,22 @@ import '../index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
 
-export const fakeAuth = {
-    isAuthenticated:false,
 
-    authenticated(){
-        this.isAuthenticated=true
-    },
-    signout() {
-        this.isAuthenticated = false
+class Menu extends Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isAuthenticated: localStorage.getItem('token') ? true : false
+        }
     }
-}
 
-
-class Menu  extends Component{
+    signOut(){
+        localStorage.clear();
+        this.setState({
+            isAuthenticated: false
+        })
+    }
 
     render(){
 
@@ -29,12 +32,15 @@ class Menu  extends Component{
                     <NavItem>
                         <NavLink tag={Link} to='/Post'>Create Post</NavLink>
                     </NavItem>
-                    <NavItem>
-                        <Button color="outline-primary" tag={Link} to='/Login'>Login</Button>
-                    </NavItem>
-                    <NavItem>
-                        <Button color="outline-primary" tag={Link} to='/Login'>Logout</Button>
-                    </NavItem>
+                    {!this.state.isAuthenticated ?
+                        <NavItem>
+                            <Button color="outline-primary" tag={Link} to='/Login'>Login</Button>
+                        </NavItem>
+                    :
+                        <NavItem>
+                            <Button color="outline-primary" onClick={()=>this.signOut()} tag={Link} to='/Login'>Logout</Button>
+                        </NavItem> 
+                    }
                     <NavItem>
                         <Button color="outline-primary" tag={Link} to='/Signup'>Signup</Button>
                     </NavItem>

@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
-import { fakeAuth } from './Menu';
 import { Redirect } from 'react-router-dom';
 
 
@@ -13,7 +12,6 @@ class Login extends Component{
         this.state = {
             email: '',
             password: '',
-            redirectToReferrer: false
         }
         this.handleInputChange=this.handleInputChange.bind(this);
     }
@@ -21,7 +19,6 @@ class Login extends Component{
     login=()=>{
         if(this.state.email==='malika@gmail.com' && this.state.password ==='pw'){
             localStorage.setItem('token','qwertyuiopasdfghjklzxcvbnm123456');
-            fakeAuth.authenticated();
             this.props.history.push("/");
           }else{
             alert('login Failed');
@@ -37,8 +34,6 @@ class Login extends Component{
     }
 
     render(){
-
-        const { redirectToReferrer } = this.state
 
         return(
             <Container className="contain">
