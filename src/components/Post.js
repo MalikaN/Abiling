@@ -18,6 +18,7 @@ const button={
 }
 class Post extends Component{
     render(){
+
         return(
            <Container className="contain">
                 <Row>

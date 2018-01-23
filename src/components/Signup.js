@@ -3,7 +3,6 @@ import { Button, Form, FormGroup, Label, Input,Container,Row,Col } from 'reactst
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 
-
 class Signup extends Component{
     render(){
         return(

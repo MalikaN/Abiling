@@ -8,16 +8,10 @@ class Header extends Component{
     render(){
         return(
             <div >
-                {/* <Navbar color="faded" light expand="md">
-                <NavbarBrand tag={Link} to='/'> Abiling</NavbarBrand>
+                <Navbar className="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+                    <NavbarBrand tag={Link} to='/'> Abiling</NavbarBrand>
                     <Menu/>
-                </Navbar>  */}
-
-            <Navbar className="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-                <NavbarBrand tag={Link} to='/'> Abiling</NavbarBrand>
-                <Menu/>
-            </Navbar>  
-                          
+                </Navbar>                
             </div>
         );
     }

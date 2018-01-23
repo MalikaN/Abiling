@@ -6,15 +6,13 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import { fakeAuth } from './components/Menu';
 
-
 const PrivateRoute = ({component:Component,...rest}) =>(
     <Route {...rest} render={(props)=>(
         fakeAuth.isAuthenticated === true
         ?<Component {...props} />
         :<Redirect to='/Login' />
     )} />
-    )
-
+)
 
 const Routes = () =>(
     <Switch>

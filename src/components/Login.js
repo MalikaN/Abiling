@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
+import { fakeAuth } from './Menu';
+import { Redirect } from 'react-router-dom';
 
 
 class Login extends Component{
@@ -14,34 +16,39 @@ class Login extends Component{
         }
         this.handleInputChange=this.handleInputChange.bind(this);
     }
+    state = {
+        redirectToReferrer: false
+      }
 
-    login(e){
+    login=()=>{
+        fakeAuth.authenticated(()=>{
+            this.setState(()=>({
+                redirectToReferrer:true
+            }))
+        })
+
         if(this.state.email==='malika@gmail.com' && this.state.password ==='pw'){
             localStorage.setItem('token','qwertyuiopasdfghjklzxcvbnm123456');
-            this.props.history.push("/");
-            // let jwt = localStorage.getItem('token');
-            // if (jwt) {
-            //     this.props.history.push("/");
-            // } 
-            // else{
-                
-            // }
+                this.props.history.push("/");
           }else{
-            alert('login Failed');
+            //alert('login Failed');
           }
-
     }
+
     handleInputChange(e){
-        //const target = e.target;
         const value = e.target.value;
         const name = e.target.name;
         this.setState({
-            [name]:value
-          
+            [name]:value         
         });
     }
 
     render(){
+        const {redirectToReferrer} = this.state
+
+        if(redirectToReferrer === true){
+            <Redirect to='/Post'/>
+        }
         return(
             <Container className="contain">
                 <Row>
@@ -57,7 +64,9 @@ class Login extends Component{
                                 <Label for="Password">Password</Label>
                                 <Input type="password" name="password" id="inputPassword" value={this.state.pwd} placeholder="Enter your password" onChange={this.handleInputChange} />
                             </FormGroup>
-                            <Button className="" color="outline-success" onClick={()=>this.login()}>Sign in</Button>
+                            {/* <Button className="" color="outline-success" onClick={()=>this.login()}>Sign in</Button> */}
+                            <Button className="" color="outline-success" onClick={this.login}>Sign in</Button>
+                            
                         </Form>
                     </Col>
                 </Row>

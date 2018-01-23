@@ -6,12 +6,10 @@ import { Container, Row, Col } from 'reactstrap';
 
 
 const col ={
-    // 'width':'20%',
     'float':'left',
     'padding':'10px'
 };
 const card ={
-
         'float':'left',
         'padding':'10px',
         'background-color': '#fff',
@@ -25,10 +23,8 @@ const card ={
 class Home extends Component{
     constructor(props) {
         super(props);
-
         this.state = {
              hovering : false,
-             
         };
     }
 
