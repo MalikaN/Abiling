@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Post from './components/Post';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import singlePost from './components/singlePost';
 
 
 const isAuthenticated =  localStorage.getItem('token') ? true : false
@@ -23,6 +24,7 @@ const Routes = () =>(
         <Route exact path='/' component={Home} />
         {/* <Route path='/Post' component={Post} /> */}
         <Route path='/Login' component={Login} />
+        <Route path='/singlePost' component={singlePost} />
         <Route path='/Signup' component={Signup} />
         <PrivateRoute path='/Post' component={Post} />
 
