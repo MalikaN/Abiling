@@ -3,6 +3,7 @@ import '../index.css';
 import posts from '../posts.js';
 import { Button, Card, CardImg, CardTitle, CardText,CardSubtitle, CardBody } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 
 const col ={
@@ -44,7 +45,7 @@ class Home extends Component{
                         <CardTitle>{post.first_name +" "+ post.last_name}</CardTitle>
                         <CardSubtitle>{post.email}</CardSubtitle>
                         <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
-                        <Button color="link">Readmore>></Button>
+                        <Button color="link" tag={Link} to='/singlePost'  >Readmore>></Button>
                     </CardBody>
                 </Card>
             </Col>

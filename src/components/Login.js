@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reac
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 import { Redirect } from 'react-router-dom';
+import Menu from './Menu';
 
 
 class Login extends Component{
